@@ -6,7 +6,7 @@
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 17:09:55 by dde-jesu          #+#    #+#             */
-/*   Updated: 2018/11/07 10:38:16 by dde-jesu         ###   ########.fr       */
+/*   Updated: 2018/11/07 15:01:06 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,19 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	uint32_t		repeated_c;
 	uint32_t		mask;
 
-	repeated_c = c | (c << 8) | (c << 16) | (c << 24);
+	repeated_c = (c & 0xFF) | ((c & 0xFF) << 8);
+	repeated_c |= repeated_c << 16;
 	while (n >= sizeof(uint32_t))
 	{
-		mask = *c_s ^ repeated_c;
+		mask = *c_s++ ^ repeated_c;
 		if ((mask & 0xff) == 0)
-			return ((void *)c_s);
+			return ((void *)c_s - 4);
 		if ((mask & 0xff00) == 0)
-			return ((void *)c_s + 1);
+			return ((void *)c_s - 3);
 		if ((mask & 0xff0000) == 0)
-			return ((void *)c_s + 2);
+			return ((void *)c_s - 2);
 		if ((mask & 0xff000000) == 0)
-			return ((void *)c_s + 3);
-		c_s++;
+			return ((void *)c_s - 1);
 		n -= sizeof(uint32_t);
 	}
 	b_s = (unsigned char *)c_s;
