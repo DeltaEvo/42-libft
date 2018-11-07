@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/07 10:18:49 by dde-jesu          #+#    #+#             */
-/*   Updated: 2018/11/07 10:18:53 by dde-jesu         ###   ########.fr       */
+/*   Created: 2018/11/07 10:48:45 by dde-jesu          #+#    #+#             */
+/*   Updated: 2018/11/07 10:50:14 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dst, const char *src)
-{
-	const char	*odst = dst;
+#include <stdlib.h>
 
-	while (*src)
-		*dst++ = *src++;
-	*dst = '\0';
-	return ((char *)odst);
+void	ft_memdel(void **ap)
+{
+	if (*ap)
+		free(*ap);
+	*ap = NULL;
 }

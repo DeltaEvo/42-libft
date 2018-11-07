@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/07 10:18:49 by dde-jesu          #+#    #+#             */
-/*   Updated: 2018/11/07 10:18:53 by dde-jesu         ###   ########.fr       */
+/*   Created: 2018/11/07 10:14:53 by dde-jesu          #+#    #+#             */
+/*   Updated: 2018/11/07 10:14:57 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dst, const char *src)
-{
-	const char	*odst = dst;
+#include "libft.h"
 
-	while (*src)
-		*dst++ = *src++;
-	*dst = '\0';
-	return ((char *)odst);
+char	*ft_strrchr(const char *s, int c)
+{
+	size_t	len;
+
+	len = ft_strlen(s) + 1;
+	while (--len)
+		if (s[len] == c)
+			return ((char *)s + len);
+	return (NULL);
 }

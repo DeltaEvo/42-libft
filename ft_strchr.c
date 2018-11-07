@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/07 10:18:49 by dde-jesu          #+#    #+#             */
-/*   Updated: 2018/11/07 10:18:53 by dde-jesu         ###   ########.fr       */
+/*   Created: 2018/11/07 10:13:57 by dde-jesu          #+#    #+#             */
+/*   Updated: 2018/11/07 10:13:59 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dst, const char *src)
+char	*ft_strchr(const char *s, int c)
 {
-	const char	*odst = dst;
-
-	while (*src)
-		*dst++ = *src++;
-	*dst = '\0';
-	return ((char *)odst);
+	while (*s)
+		if (*s++ == c)
+			return ((char *)s - 1);
+	if (c)
+		return (0);
+	else
+		return ((char *)s);
 }

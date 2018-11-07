@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/07 10:18:49 by dde-jesu          #+#    #+#             */
-/*   Updated: 2018/11/07 10:18:53 by dde-jesu         ###   ########.fr       */
+/*   Created: 2018/11/07 11:29:13 by dde-jesu          #+#    #+#             */
+/*   Updated: 2018/11/07 12:59:17 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dst, const char *src)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	const char	*odst = dst;
+	unsigned int	i;
 
-	while (*src)
-		*dst++ = *src++;
-	*dst = '\0';
-	return ((char *)odst);
+	i = 0;
+	while (s[i])
+	{
+		f(i, s + i);
+		i++;
+	}
 }

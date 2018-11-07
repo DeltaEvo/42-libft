@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/07 10:18:49 by dde-jesu          #+#    #+#             */
-/*   Updated: 2018/11/07 10:18:53 by dde-jesu         ###   ########.fr       */
+/*   Created: 2018/11/07 12:10:53 by dde-jesu          #+#    #+#             */
+/*   Updated: 2018/11/07 12:57:41 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dst, const char *src)
-{
-	const char	*odst = dst;
+#include <unistd.h>
 
-	while (*src)
-		*dst++ = *src++;
-	*dst = '\0';
-	return ((char *)odst);
+void		ft_putnbr_fd(int n, int fd)
+{
+	char		buf[11];
+	int			i;
+	const char	neg = n < 0;
+
+	if (!neg)
+		n = -n;
+	i = sizeof(buf);
+	while (n)
+	{
+		buf[--i] = -(n % 10) + '0';
+		n /= 10;
+	}
+	if (neg)
+		buf[--i] = '-';
+	write(fd, buf + i, sizeof(buf) - i);
 }

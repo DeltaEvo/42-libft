@@ -6,18 +6,14 @@
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 17:09:55 by dde-jesu          #+#    #+#             */
-/*   Updated: 2018/11/06 17:10:17 by dde-jesu         ###   ########.fr       */
+/*   Updated: 2018/11/07 10:38:16 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include <stdint.h>
 
-/*
- * Pseudo vectorisation with normal instructions
- */
- 
-void *ft_memchr(const void *s, int c, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
 	const uint32_t	*c_s = s;
 	unsigned char	*b_s;

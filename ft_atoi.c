@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/07 10:18:49 by dde-jesu          #+#    #+#             */
-/*   Updated: 2018/11/07 10:18:53 by dde-jesu         ###   ########.fr       */
+/*   Created: 2018/11/07 09:40:16 by dde-jesu          #+#    #+#             */
+/*   Updated: 2018/11/07 10:12:53 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dst, const char *src)
+int	ft_atoi(const char *str)
 {
-	const char	*odst = dst;
+	int		result;
+	char	mod;
 
-	while (*src)
-		*dst++ = *src++;
-	*dst = '\0';
-	return ((char *)odst);
+	while (*str == ' ' || (*str >= '\t' && *str <= '\r'))
+		str++;
+	result = 0;
+	mod = *str == '-' || *str == '+' ? *str++ == '-' : 0;
+	while (*str >= '0' && *str <= '9')
+		result = result * 10 + *str++ - '0';
+	return (mod ? -result : result);
 }

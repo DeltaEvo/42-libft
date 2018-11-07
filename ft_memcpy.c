@@ -6,7 +6,7 @@
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 16:34:05 by dde-jesu          #+#    #+#             */
-/*   Updated: 2018/11/06 17:08:16 by dde-jesu         ###   ########.fr       */
+/*   Updated: 2018/11/07 10:26:37 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 
 	c_dst = dst;
 	while (n--)
-		*c_dst = *c_src;	
+		*c_dst = *c_src;
 	return (dst);
 }
