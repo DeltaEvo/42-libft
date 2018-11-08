@@ -6,17 +6,18 @@
 #    By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 16:01:17 by dde-jesu          #+#    #+#              #
-#    Updated: 2018/11/07 16:26:43 by dde-jesu         ###   ########.fr        #
+#    Updated: 2018/11/08 13:00:46 by dde-jesu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=libft.a
-CFLAGS=-Wall -Werror -Wextra -g
-OBJS=$(patsubst %.c,%.o,$(wildcard *.c))
+CFLAGS=-Wall -Werror -Wextra
+include srcs.mk
+OBJS=$(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(OBJS): libft.h
+$(OBJS): libft.h Makefile srcs.mk
 
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)

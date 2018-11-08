@@ -6,7 +6,7 @@
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 10:14:53 by dde-jesu          #+#    #+#             */
-/*   Updated: 2018/11/07 14:09:45 by dde-jesu         ###   ########.fr       */
+/*   Updated: 2018/11/08 12:03:36 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ char	*ft_strrchr(const char *s, int c)
 	while (--len)
 		if (s[len] == c)
 			return ((char *)s + len);
-	return (NULL);
+	return (*s == c ? (char *)s : NULL);
 }

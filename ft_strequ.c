@@ -6,7 +6,7 @@
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 11:46:19 by dde-jesu          #+#    #+#             */
-/*   Updated: 2018/11/07 11:56:00 by dde-jesu         ###   ########.fr       */
+/*   Updated: 2018/11/08 09:26:25 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,8 @@
 
 int	ft_strequ(char const *s1, char const *s2)
 {
-	return (ft_strcmp(s1, s2) == 0);
+	if (!s1 || !s2)
+		return (s1 == s2);
+	else
+		return (ft_strcmp(s1, s2) == 0);
 }

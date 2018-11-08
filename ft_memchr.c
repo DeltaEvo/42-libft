@@ -6,7 +6,7 @@
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 17:09:55 by dde-jesu          #+#    #+#             */
-/*   Updated: 2018/11/07 15:01:06 by dde-jesu         ###   ########.fr       */
+/*   Updated: 2018/11/08 12:19:35 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	b_s = (unsigned char *)c_s;
 	while (n--)
-		if (*b_s++ == c)
+		if (*b_s++ == (unsigned char)c)
 			return ((void *)b_s - 1);
 	return (NULL);
 }

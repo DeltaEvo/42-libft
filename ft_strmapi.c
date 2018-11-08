@@ -6,7 +6,7 @@
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 11:31:18 by dde-jesu          #+#    #+#             */
-/*   Updated: 2018/11/07 15:28:22 by dde-jesu         ###   ########.fr       */
+/*   Updated: 2018/11/08 09:25:24 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char			*new;
 	unsigned int	i;
 
-	if (!(new = malloc(ft_strlen(s) + 1)))
+	if (!s || !(new = malloc(ft_strlen(s) + 1)))
 		return (NULL);
 	i = 0;
 	while (s[i])
