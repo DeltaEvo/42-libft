@@ -6,7 +6,7 @@
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 10:41:44 by dde-jesu          #+#    #+#             */
-/*   Updated: 2018/11/08 12:45:55 by dde-jesu         ###   ########.fr       */
+/*   Updated: 2018/11/08 15:20:16 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		else
 		{
 			haystack -= needle - o_needle;
+			len += needle - o_needle;
 			needle = o_needle;
 		}
 	return (*needle ? 0 : (char *)(haystack - (needle - o_needle)));

@@ -6,7 +6,7 @@
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 12:10:53 by dde-jesu          #+#    #+#             */
-/*   Updated: 2018/11/07 12:57:41 by dde-jesu         ###   ########.fr       */
+/*   Updated: 2018/11/08 15:11:08 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,14 @@ void		ft_putnbr_fd(int n, int fd)
 	if (!neg)
 		n = -n;
 	i = sizeof(buf);
-	while (n)
-	{
-		buf[--i] = -(n % 10) + '0';
-		n /= 10;
-	}
+	if (!n)
+		buf[--i] = '0';
+	else
+		while (n)
+		{
+			buf[--i] = -(n % 10) + '0';
+			n /= 10;
+		}
 	if (neg)
 		buf[--i] = '-';
 	write(fd, buf + i, sizeof(buf) - i);
