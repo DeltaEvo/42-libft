@@ -6,7 +6,7 @@
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 16:22:29 by dde-jesu          #+#    #+#             */
-/*   Updated: 2018/11/08 13:07:23 by dde-jesu         ###   ########.fr       */
+/*   Updated: 2018/11/08 17:03:01 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define LIBFT_H
 
 # include <stddef.h>
+# include <stdint.h>
+# include <stdarg.h>
 
 int				ft_atoi(const char *str);
 void			ft_bzero(void *s, size_t n);
@@ -78,5 +80,22 @@ typedef struct	s_list
 	size_t			content_size;
 	struct s_list	*next;
 }				t_list;
+
+void			ft_lstadd(t_list **alst, t_list *new);
+void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
+void			ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
+void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
+t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+t_list			*ft_lstnew(void const *content, size_t c_size);
+
+/*
+** Extra
+*/
+
+void			ft_putf(char *fmt, ...);
+void			ft_putf_fd(int fd, char *fmt, ...);
+void			ft_putf_va(int fd, char *fmt, va_list args);
+int				ft_atoi_base(const char *str, uint8_t base);
+int				ft_getopt(int argc, char *const argv[], const char *opts);
 
 #endif
