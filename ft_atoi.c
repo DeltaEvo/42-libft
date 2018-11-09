@@ -6,11 +6,11 @@
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 09:40:16 by dde-jesu          #+#    #+#             */
-/*   Updated: 2018/11/08 17:32:27 by dde-jesu         ###   ########.fr       */
+/*   Updated: 2018/11/09 17:32:55 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <limits.h>
+#define LONG_MAX 9223372036854775807
 
 int	ft_atoi(const char *str)
 {

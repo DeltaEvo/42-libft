@@ -6,23 +6,22 @@
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 17:09:55 by dde-jesu          #+#    #+#             */
-/*   Updated: 2018/11/08 12:19:35 by dde-jesu         ###   ########.fr       */
+/*   Updated: 2018/11/09 17:27:00 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include <stdint.h>
+#include <string.h>
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	const uint32_t	*c_s = s;
+	const int		*c_s = s;
 	unsigned char	*b_s;
-	uint32_t		repeated_c;
-	uint32_t		mask;
+	int				repeated_c;
+	int				mask;
 
 	repeated_c = (c & 0xFF) | ((c & 0xFF) << 8);
 	repeated_c |= repeated_c << 16;
-	while (n >= sizeof(uint32_t))
+	while (n >= 4)
 	{
 		mask = *c_s++ ^ repeated_c;
 		if ((mask & 0xff) == 0)
@@ -33,7 +32,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 			return ((void *)c_s - 2);
 		if ((mask & 0xff000000) == 0)
 			return ((void *)c_s - 1);
-		n -= sizeof(uint32_t);
+		n -= 4;
 	}
 	b_s = (unsigned char *)c_s;
 	while (n--)

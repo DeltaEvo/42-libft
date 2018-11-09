@@ -6,11 +6,11 @@
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 10:26:47 by dde-jesu          #+#    #+#             */
-/*   Updated: 2018/11/07 15:37:51 by dde-jesu         ###   ########.fr       */
+/*   Updated: 2018/11/09 17:27:12 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <string.h>
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {

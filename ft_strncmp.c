@@ -6,11 +6,11 @@
 /*   By: dde-jesu <dde-jesu@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 15:59:10 by dde-jesu          #+#    #+#             */
-/*   Updated: 2018/11/08 11:52:00 by dde-jesu         ###   ########.fr       */
+/*   Updated: 2018/11/09 17:28:42 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <string.h>
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

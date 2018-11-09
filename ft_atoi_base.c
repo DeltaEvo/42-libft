@@ -6,11 +6,9 @@
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 15:53:00 by dde-jesu          #+#    #+#             */
-/*   Updated: 2018/11/08 15:55:43 by dde-jesu         ###   ########.fr       */
+/*   Updated: 2018/11/09 17:33:35 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdint.h>
 
 static char	char_to_num(char c)
 {
@@ -24,7 +22,7 @@ static char	char_to_num(char c)
 		return (-1);
 }
 
-int			ft_atoi_base(const char *str, uint8_t base)
+int			ft_atoi_base(const char *str, char base)
 {
 	int		res;
 	char	mod;
