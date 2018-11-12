@@ -6,7 +6,7 @@
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 16:02:16 by dde-jesu          #+#    #+#             */
-/*   Updated: 2018/11/08 17:33:17 by dde-jesu         ###   ########.fr       */
+/*   Updated: 2018/11/12 10:33:37 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_getopt(int argc, char *const argv[], const char *optstring)
 	optstring = ft_strchr(optstring, *str++);
 	g_ft_optopt = optstring ? *optstring : '?';
 	if (g_ft_opterr && g_ft_optopt == '?')
-		ft_putf_fd(1, "%s: illegal option -- %c\n", argv[0], str[-1]);
+		ft_putf_fd(2, "%s: illegal option -- %c\n", argv[0], str[-1]);
 	if (!optstring || optstring[1] != ':')
 		return (g_ft_optopt);
 	if (g_ft_optind >= argc)
