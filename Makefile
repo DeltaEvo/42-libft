@@ -6,7 +6,7 @@
 #    By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 16:01:17 by dde-jesu          #+#    #+#              #
-#    Updated: 2018/11/09 17:38:40 by dde-jesu         ###   ########.fr        #
+#    Updated: 2018/11/12 10:21:56 by dde-jesu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -97,3 +97,4 @@ re: fclean $(NAME)
 proto:
 	@grep -E "[^ ]+\t+\*?ft_[^ \(]+\(" -h *.c | sed 's/$$/;/'
 
+.PHONY: clean fclean re proto

@@ -6,7 +6,7 @@
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 16:22:29 by dde-jesu          #+#    #+#             */
-/*   Updated: 2018/11/09 17:30:57 by dde-jesu         ###   ########.fr       */
+/*   Updated: 2018/11/12 10:24:24 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include <string.h>
+# include <stdarg.h>
 
 int				ft_atoi(const char *str);
 void			ft_bzero(void *s, size_t n);
@@ -89,8 +90,6 @@ t_list			*ft_lstnew(void const *content, size_t c_size);
 /*
 ** Extra
 */
-
-# include <stdarg.h>
 
 void			ft_putf(char *fmt, ...);
 void			ft_putf_fd(int fd, char *fmt, ...);
