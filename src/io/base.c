@@ -6,7 +6,7 @@
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 13:02:00 by dde-jesu          #+#    #+#             */
-/*   Updated: 2018/12/03 13:26:24 by dde-jesu         ###   ########.fr       */
+/*   Updated: 2018/12/06 11:57:05 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_writable	init_writable(t_io_flush flush)
 	});
 }
 
-ssize_t		ft_io_write(t_writable *w, uint8_t data[], size_t len)
+ssize_t		ft_io_write(t_writable *w, char data[], size_t len)
 {
 	const size_t	remaining = BUFFER_SIZE - w->index;
 
@@ -47,7 +47,7 @@ ssize_t		ft_io_write(t_writable *w, uint8_t data[], size_t len)
 	return (1);
 }
 
-ssize_t		ft_io_read(t_readable *r, uint8_t data[], size_t len)
+ssize_t		ft_io_read(t_readable *r, char data[], size_t len)
 {
 	const size_t	remaining = r->len - r->index;
 	size_t			copied;

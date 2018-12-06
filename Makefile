@@ -6,7 +6,7 @@
 #    By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/30 10:00:57 by dde-jesu          #+#    #+#              #
-#    Updated: 2018/12/06 09:45:53 by dde-jesu         ###   ########.fr        #
+#    Updated: 2018/12/06 11:16:23 by dde-jesu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ OBJ_DIR = $(BUILD_DIR)/objs
 DEP_DIR = $(BUILD_DIR)/deps
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -Iinclude
+CFLAGS = -Wall -Wextra -Werror -Iinclude -g
 PRECOMPILE = @mkdir -p $(dir $@)
 POSTCOMPILE =
 

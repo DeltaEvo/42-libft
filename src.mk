@@ -1,3 +1,4 @@
+SRCS += src/args/args.c
 SRCS += src/convert/int_to_str.c
 SRCS += src/io/base.c
 SRCS += src/io/sys.c
@@ -9,6 +10,7 @@ SRCS += src/str/ft_strchr.c
 SRCS += src/str/ft_strcmp.c
 SRCS += src/str/ft_strdup.c
 SRCS += src/str/ft_strlen.c
+SRCS += src/str/ft_strncmp.c
 SRCS += src/str/ft_strnstr.c
 SRCS += src/str/ft_strstr.c
 SRCS += src/str/ft_wstrlen.c
