@@ -6,7 +6,7 @@
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 12:11:03 by dde-jesu          #+#    #+#             */
-/*   Updated: 2018/12/06 12:47:24 by dde-jesu         ###   ########.fr       */
+/*   Updated: 2018/12/07 16:25:07 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdint.h>
 # include <unistd.h>
+# include <stdarg.h>
 
 # define BUFFER_SIZE (4096)
 
@@ -43,13 +44,11 @@ ssize_t			ft_io_read(t_readable *r, char data[], size_t len);
 char			io_peek(t_readable *r);
 ssize_t			fill_fd(t_readable *r);
 ssize_t			flush_fd(t_writable *w);
-int					ft_atoi_rd(t_readable *rd);
+int				ft_atoi_rd(t_readable *rd);
 
 extern t_readable *g_stdin;
 extern t_writable *g_stdout;
 extern t_writable *g_stderr;
-
-# include <stdarg.h>
 
 void			ft_putf(char *fmt, ...);
 void			ft_putf_fd(int fd, char *fmt, ...);

@@ -6,7 +6,7 @@
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 11:47:05 by dde-jesu          #+#    #+#             */
-/*   Updated: 2018/12/06 12:16:39 by dde-jesu         ###   ########.fr       */
+/*   Updated: 2018/12/07 16:25:16 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ size_t	ft_wcslen(const wchar_t *s);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 char	*ft_strstr(const char *haystack, const char *needle);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
-int	ft_atoip(char **str);
+int		ft_atoip(char **str);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 15:45:23 by dde-jesu          #+#    #+#             */
-/*   Updated: 2018/12/07 15:55:03 by dde-jesu         ###   ########.fr       */
+/*   Updated: 2018/12/07 16:24:17 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,13 @@ typedef	struct	s_vec3_data {
 	float	z;
 }				t_vec3_data;
 
-typedef	union	s_vec3 {
+typedef	union	u_vec3 {
 	float		a[3];
 	t_vec3_data	d;
 }				t_vec3;
 
 t_mat4			mat4_identity();
-t_mat4			mat4_scale(float scaleX, float scaleY, float scaleZ);
+t_mat4			mat4_scale(float x, float y, float z);
 t_mat4			mat4_translate(float x, float y, float z);
 t_mat4			mat4_mult(t_mat4 a, t_mat4 b);
 t_vec3			mat4_mult_vec3(t_mat4 m, t_vec3 v);
