@@ -24,5 +24,6 @@ size_t	ft_wcslen(const wchar_t *s);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 char	*ft_strstr(const char *haystack, const char *needle);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int	ft_atoip(char **str);
 
 #endif

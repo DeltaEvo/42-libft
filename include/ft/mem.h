@@ -16,5 +16,7 @@
 # include <stddef.h>
 
 void	*ft_memcpy(void *dst, const void *src, size_t n);
+void	*ft_realloc(void *o_ptr, size_t oldsize, size_t newsize);
+void	*ft_memchr(const void *s, int c, size_t n);
 
 #endif

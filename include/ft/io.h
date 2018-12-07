@@ -36,10 +36,14 @@ typedef	struct	s_writable {
 typedef ssize_t	(*t_io_fill)(t_readable *r);
 typedef ssize_t	(*t_io_flush)(t_writable *r);
 
-t_readable		init_readable(t_io_fill fill);
-t_writable		init_writable(t_io_flush flush);
+t_readable		init_readable(t_io_fill fill, void *data);
+t_writable		init_writable(t_io_flush flush, void *data);
 ssize_t			ft_io_write(t_writable *w, char data[], size_t len);
 ssize_t			ft_io_read(t_readable *r, char data[], size_t len);
+char			io_peek(t_readable *r);
+ssize_t			fill_fd(t_readable *r);
+ssize_t			flush_fd(t_writable *w);
+int					ft_atoi_rd(t_readable *rd);
 
 extern t_readable *g_stdin;
 extern t_writable *g_stdout;
