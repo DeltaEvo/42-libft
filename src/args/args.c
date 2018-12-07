@@ -6,7 +6,7 @@
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 10:07:27 by dde-jesu          #+#    #+#             */
-/*   Updated: 2018/12/06 12:39:49 by dde-jesu         ###   ########.fr       */
+/*   Updated: 2018/12/07 16:29:53 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,17 @@ static int	show_err(int err, char *name, char *option, size_t len)
 		return (0);
 	if (err == UNKNOWN_OPTION)
 	{
-		ft_io_write(g_stderr, name, ft_strlen(name));
-		ft_io_write(g_stderr, ": illegal option -- ", 20);
-		ft_io_write(g_stderr, option, len);
-		ft_io_write(g_stderr, "\n", 1);
+		io_write(g_stderr, name, ft_strlen(name));
+		io_write(g_stderr, ": illegal option -- ", 20);
+		io_write(g_stderr, option, len);
+		io_write(g_stderr, "\n", 1);
 	}
 	else if (err == NO_ARG)
 	{
-		ft_io_write(g_stderr, name, ft_strlen(name));
-		ft_io_write(g_stderr, ": argument required -- ", 23);
-		ft_io_write(g_stderr, option, len);
-		ft_io_write(g_stderr, "\n", 1);
+		io_write(g_stderr, name, ft_strlen(name));
+		io_write(g_stderr, ": argument required -- ", 23);
+		io_write(g_stderr, option, len);
+		io_write(g_stderr, "\n", 1);
 	}
 	g_stderr->flush(g_stderr);
 	return (1);
