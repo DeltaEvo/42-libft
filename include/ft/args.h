@@ -6,7 +6,7 @@
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 09:55:57 by dde-jesu          #+#    #+#             */
-/*   Updated: 2018/12/06 11:48:18 by dde-jesu         ###   ########.fr       */
+/*   Updated: 2018/12/07 16:38:17 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ typedef struct	s_arg {
 	const char		*help;
 }				t_arg;
 
-int				parse_args(t_arg args[], int argc, char *argv[]);
+int				parse_args(const t_arg args[], int argc, char *argv[]);
 #endif

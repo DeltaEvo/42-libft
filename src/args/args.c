@@ -6,7 +6,7 @@
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 10:07:27 by dde-jesu          #+#    #+#             */
-/*   Updated: 2018/12/07 16:29:53 by dde-jesu         ###   ########.fr       */
+/*   Updated: 2018/12/10 15:03:52 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static int	show_err(int err, char *name, char *option, size_t len)
 	return (1);
 }
 
-static int	get_value(char **c_arg, t_arg opt[], char *argv[], int i[2])
+static int	get_value(char **c_arg, const t_arg opt[], char *argv[], int i[2])
 {
 	char	*arg;
 	char	*value;
@@ -63,12 +63,12 @@ static int	get_value(char **c_arg, t_arg opt[], char *argv[], int i[2])
 		if (opt->type == ARG_STRING)
 			*(char **)opt->value = value;
 		else if (opt->type == ARG_INTEGER)
-			*(int *)opt->value = 0; // TODO: ft_atoi
+			*(int *)opt->value = 0;
 	}
 	return (0);
 }
 
-static int	parse_short(char **c_arg, t_arg opt[], char *argv[], int *i)
+static int	parse_short(char **c_arg, const t_arg opt[], char *argv[], int *i)
 {
 	int	indexes[2];
 	int	err;
@@ -88,7 +88,7 @@ static int	parse_short(char **c_arg, t_arg opt[], char *argv[], int *i)
 	return (show_err(UNKNOWN_OPTION, argv[0], *c_arg, 1));
 }
 
-static int	parse_long(char **c_arg, t_arg opt[], char *argv[], int *i)
+static int	parse_long(char **c_arg, const t_arg opt[], char *argv[], int *i)
 {
 	size_t	len;
 	char	*res;
@@ -116,7 +116,7 @@ static int	parse_long(char **c_arg, t_arg opt[], char *argv[], int *i)
 	return (show_err(UNKNOWN_OPTION, argv[0], *c_arg, ft_strlen(*c_arg)));
 }
 
-int			parse_args(t_arg args[], int argc, char *argv[])
+int			parse_args(const t_arg args[], int argc, char *argv[])
 {
 	int		i;
 	int		err;
