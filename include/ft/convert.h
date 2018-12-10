@@ -6,7 +6,7 @@
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 11:54:58 by dde-jesu          #+#    #+#             */
-/*   Updated: 2018/12/04 11:41:30 by dde-jesu         ###   ########.fr       */
+/*   Updated: 2018/12/10 13:00:42 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ typedef struct	s_int_str8 {
 
 t_int_str		ft_int_to_str(intmax_t nb);
 t_int_str		ft_uint_to_str(uintmax_t nb);
-t_int_str16		ft_int_to_str16(intmax_t nbm, uint8_t maj);
 t_int_str16		ft_uint_to_str16(uintmax_t nb, uint8_t maj);
-t_int_str8		ft_int_to_str8(intmax_t nb);
 t_int_str8		ft_uint_to_str8(uintmax_t nb);
 #endif
