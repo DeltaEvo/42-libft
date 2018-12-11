@@ -6,27 +6,33 @@
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 13:44:03 by dde-jesu          #+#    #+#             */
-/*   Updated: 2018/12/11 14:02:34 by dde-jesu         ###   ########.fr       */
+/*   Updated: 2018/12/11 14:09:13 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <wchar.h>
+#include <stdint.h>
 
-size_t	ft_wcstrlen(const wchar_t *s)
+size_t	ft_wcstrnlen(const wchar_t *s, size_t max)
 {
+	uint8_t	curr;
 	size_t	len;
 
 	len = 0;
-	while (*s)
+	while (*s && len < max)
 	{
 		if ((unsigned)*s < 0x80)
-			len += 1;
+			curr = 1;
 		else if ((unsigned)*s < 0x800)
-			len += 2;
+			curr = 2;
 		else if ((unsigned)*s < 0xd800 || (unsigned)*s - 0xe000 < 0x2000)
-			len += 3;
+			curr = 3;
 		else if ((unsigned)*s - 0x10000 < 0x100000)
-			len += 4;
+			curr = 4;
+		else
+			break ;
+		if (len + curr <= max)
+			len += curr;
 		else
 			break ;
 		s++;
