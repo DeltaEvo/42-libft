@@ -44,7 +44,6 @@ ssize_t			io_read(t_readable *r, char data[], size_t len);
 char			io_peek(t_readable *r);
 ssize_t			fill_fd(t_readable *r);
 ssize_t			flush_fd(t_writable *w);
-int				ft_atoi_rd(t_readable *rd);
 
 extern t_readable *g_stdin;
 extern t_writable *g_stdout;
