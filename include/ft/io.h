@@ -6,7 +6,7 @@
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 12:11:03 by dde-jesu          #+#    #+#             */
-/*   Updated: 2018/12/07 16:29:15 by dde-jesu         ###   ########.fr       */
+/*   Updated: 2018/12/17 12:25:35 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,9 @@
 # include <unistd.h>
 # include <stdarg.h>
 
-# define BUFFER_SIZE (4096)
-
 typedef	struct	s_readable {
-	uint8_t	buffer[BUFFER_SIZE];
+	uint8_t	*buffer;
+	size_t	buffer_size;
 	size_t	index;
 	size_t	len;
 	ssize_t	(*fill)(struct s_readable *);
@@ -28,7 +27,8 @@ typedef	struct	s_readable {
 }				t_readable;
 
 typedef	struct	s_writable {
-	uint8_t	buffer[BUFFER_SIZE];
+	uint8_t	*buffer;
+	size_t	buffer_size;
 	size_t	index;
 	ssize_t	(*flush)(struct s_writable *);
 	void	*data;
@@ -37,17 +37,13 @@ typedef	struct	s_writable {
 typedef ssize_t	(*t_io_fill)(t_readable *r);
 typedef ssize_t	(*t_io_flush)(t_writable *r);
 
-t_readable		init_readable(t_io_fill fill, void *data);
+t_readable		init_readable(t_io_fill fill, void *data, uint8_t *buff, size_t s);
 t_writable		init_writable(t_io_flush flush, void *data);
 ssize_t			io_write(t_writable *w, char data[], size_t len);
 ssize_t			io_read(t_readable *r, char data[], size_t len);
 char			io_peek(t_readable *r);
 ssize_t			fill_fd(t_readable *r);
 ssize_t			flush_fd(t_writable *w);
-
-extern t_readable *g_stdin;
-extern t_writable *g_stdout;
-extern t_writable *g_stderr;
 
 void			ft_putf(char *fmt, ...);
 void			ft_putf_fd(int fd, char *fmt, ...);

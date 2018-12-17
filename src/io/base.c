@@ -6,20 +6,22 @@
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 13:02:00 by dde-jesu          #+#    #+#             */
-/*   Updated: 2018/12/06 11:57:05 by dde-jesu         ###   ########.fr       */
+/*   Updated: 2018/12/17 12:25:19 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft/io.h"
 #include "ft/mem.h"
 
-t_readable	init_readable(t_io_fill fill, void *data)
+t_readable	init_readable(t_io_fill fill, void *data, uint8_t *buff, size_t s)
 {
 	return ((t_readable) {
 		.index = 0,
 		.len = 0,
 		.fill = fill,
-		.data = data
+		.data = data,
+		.buffer = buff,
+		.buffer_size = s
 	});
 }
 
@@ -34,7 +36,7 @@ t_writable	init_writable(t_io_flush flush, void *data)
 
 ssize_t		io_write(t_writable *w, char data[], size_t len)
 {
-	const size_t	remaining = BUFFER_SIZE - w->index;
+	const size_t	remaining = w->buffer_size - w->index;
 
 	if (remaining < len)
 	{
