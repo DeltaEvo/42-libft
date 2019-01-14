@@ -6,7 +6,7 @@
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 13:02:00 by dde-jesu          #+#    #+#             */
-/*   Updated: 2019/01/07 16:10:38 by dde-jesu         ###   ########.fr       */
+/*   Updated: 2019/01/14 10:32:41 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ ssize_t		io_read(t_readable *r, char data[], size_t len)
 {
 	size_t	copied;
 	size_t	remaining;
+	ssize_t	ret;
 
 	remaining = r->len - r->index;
 	copied = 0;
@@ -62,7 +63,8 @@ ssize_t		io_read(t_readable *r, char data[], size_t len)
 	{
 		copied = remaining;
 		ft_memcpy(data, r->buffer + r->index, remaining);
-		r->fill(r);
+		if ((ret = r->fill(r)) <= 0)
+			return (ret < 0 ? ret : copied);
 		data += remaining;
 		len -= remaining;
 		remaining = r->len - r->index;
