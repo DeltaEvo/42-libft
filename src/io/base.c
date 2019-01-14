@@ -6,7 +6,7 @@
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 13:02:00 by dde-jesu          #+#    #+#             */
-/*   Updated: 2018/12/17 12:25:19 by dde-jesu         ###   ########.fr       */
+/*   Updated: 2019/01/07 16:10:38 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ ssize_t		io_write(t_writable *w, char data[], size_t len)
 {
 	const size_t	remaining = w->buffer_size - w->index;
 
-	if (remaining < len)
+	while ((w->buffer_size - w->index) < len)
 	{
 		ft_memcpy(w->buffer + w->index, data, remaining);
 		if (!w->flush(w))
@@ -53,19 +53,20 @@ ssize_t		io_write(t_writable *w, char data[], size_t len)
 
 ssize_t		io_read(t_readable *r, char data[], size_t len)
 {
-	const size_t	remaining = r->len - r->index;
-	size_t			copied;
+	size_t	copied;
+	size_t	remaining;
 
-	if (remaining < len)
+	remaining = r->len - r->index;
+	copied = 0;
+	while (remaining < len)
 	{
 		copied = remaining;
 		ft_memcpy(data, r->buffer + r->index, remaining);
 		r->fill(r);
 		data += remaining;
 		len -= remaining;
+		remaining = r->len - r->index;
 	}
-	else
-		copied = 0;
 	ft_memcpy(data, r->buffer + r->index, len);
 	r->index += len;
 	return (len + copied);
