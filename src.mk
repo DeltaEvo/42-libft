@@ -1,5 +1,5 @@
-# SRCS += src/args/args.c
-# SRCS += src/args/usage.c
+SRCS += src/args/args.c
+SRCS += src/args/usage.c
 SRCS += src/convert/int_to_str.c
 SRCS += src/io/base.c
 SRCS += src/io/sys.c

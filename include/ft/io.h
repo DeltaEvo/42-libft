@@ -6,7 +6,7 @@
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 12:11:03 by dde-jesu          #+#    #+#             */
-/*   Updated: 2018/12/20 11:49:28 by dde-jesu         ###   ########.fr       */
+/*   Updated: 2019/01/25 09:16:40 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ typedef ssize_t	(*t_io_flush)(t_writable *r);
 
 t_readable		init_readable(t_io_fill fill, void *data, uint8_t *buff,
 		size_t s);
-t_writable		init_writable(t_io_flush flush, void *data);
+t_writable		init_writable(t_io_flush flush, void *data, uint8_t *buff,
+		size_t s);
 ssize_t			io_write(t_writable *w, char data[], size_t len);
 ssize_t			io_read(t_readable *r, char data[], size_t len);
 char			io_peek(t_readable *r);

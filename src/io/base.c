@@ -6,7 +6,7 @@
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 13:02:00 by dde-jesu          #+#    #+#             */
-/*   Updated: 2019/01/14 10:32:41 by dde-jesu         ###   ########.fr       */
+/*   Updated: 2019/01/25 09:17:01 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,14 @@ t_readable	init_readable(t_io_fill fill, void *data, uint8_t *buff, size_t s)
 	});
 }
 
-t_writable	init_writable(t_io_flush flush, void *data)
+t_writable	init_writable(t_io_flush flush, void *data, uint8_t *buff, size_t s)
 {
 	return ((t_writable) {
 		.index = 0,
 		.flush = flush,
-		.data = data
+		.data = data,
+		.buffer = buff,
+		.buffer_size = s
 	});
 }
 

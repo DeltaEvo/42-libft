@@ -6,7 +6,7 @@
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 10:07:27 by dde-jesu          #+#    #+#             */
-/*   Updated: 2018/12/10 15:03:52 by dde-jesu         ###   ########.fr       */
+/*   Updated: 2019/01/25 09:15:09 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,27 @@
 
 static int	show_err(int err, char *name, char *option, size_t len)
 {
+	t_writable	stderr;
+	uint8_t		buffer[128];
+
+	stderr = init_writable(flush_fd, (void *)1, buffer, sizeof(buffer));
 	if (!err)
 		return (0);
 	if (err == UNKNOWN_OPTION)
 	{
-		io_write(g_stderr, name, ft_strlen(name));
-		io_write(g_stderr, ": illegal option -- ", 20);
-		io_write(g_stderr, option, len);
-		io_write(g_stderr, "\n", 1);
+		io_write(&stderr, name, ft_strlen(name));
+		io_write(&stderr, ": illegal option -- ", 20);
+		io_write(&stderr, option, len);
+		io_write(&stderr, "\n", 1);
 	}
 	else if (err == NO_ARG)
 	{
-		io_write(g_stderr, name, ft_strlen(name));
-		io_write(g_stderr, ": argument required -- ", 23);
-		io_write(g_stderr, option, len);
-		io_write(g_stderr, "\n", 1);
+		io_write(&stderr, name, ft_strlen(name));
+		io_write(&stderr, ": argument required -- ", 23);
+		io_write(&stderr, option, len);
+		io_write(&stderr, "\n", 1);
 	}
-	g_stderr->flush(g_stderr);
+	stderr.flush(&stderr);
 	return (1);
 }
 
