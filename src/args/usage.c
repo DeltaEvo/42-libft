@@ -6,7 +6,7 @@
 /*   By: dde-jesu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/12 15:08:41 by dde-jesu          #+#    #+#             */
-/*   Updated: 2018/12/12 15:34:40 by dde-jesu         ###   ########.fr       */
+/*   Updated: 2019/02/12 14:04:20 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int			args_usage(const t_arg args[], char *name, char *usage, char *desc)
 {
-	ft_putf_fd(1, "Usage: %s [OPTION]... %s\n%s\n\nOptions:\n", name, usage,
+	ft_putf_fd(1, "Usage: %s %s\n%s\n\nOptions:\n", name, usage,
 			desc);
 	while (args->type != ARG_END)
 	{
