@@ -9,6 +9,7 @@ SRCS += src/mem/ft_memchr.c
 SRCS += src/mem/ft_memcmp.c
 SRCS += src/mem/ft_memcpy.c
 SRCS += src/mem/ft_memmove.c
+SRCS += src/mem/ft_memrchr.c
 SRCS += src/mem/ft_memset.c
 SRCS += src/mem/ft_realloc.c
 SRCS += src/old_io/ft_putchar_fd.c
